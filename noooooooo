@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Postcard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #d4ccaf;
+        }
+
+        .postcard-container {
+            perspective: 1000px;
+            width: 400px;
+            height: 300px;
+        }
+
+        .postcard {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            transition: transform 0.8s;
+            position: relative;
+            box-shadow: 0px 4px 20px rgba(78, 164, 170, 0.1);
+        }
+
+        .postcard:hover {
+            transform: rotateY(180deg);
+        }
+
+        .side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .front {
+            background-image: url("https://i0.wp.com/boingboing.net/wp-content/uploads/2015/05/rickroll.jpg?fit=797%2C797&ssl=1");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .back {
+            background-color: #63697a;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+  
+    <div>
+        <h1>Not a Rickroll</h1>
+        <div class="postcard-container">
+            <div class="postcard">
+                <div class="side front" id="front">
+                    <!-- Image background is set by CSS for front -->
+                </div>
+                <div class="side back" id="back">
+                    Never gonna give you up<br>
+                    Never gonna let you down<br>
+                    Never gonna run around and desert you<br>
+                    Never gonna make you cry<br>
+                    Never gonna say goodbye<br>
+                    Never gonna tell a lie and hurt you
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
